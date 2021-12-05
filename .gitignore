@@ -1,0 +1,7 @@
+.tar
+gsod_all_years
+desktop.ini
+.ipynb_checkpoints
+__pycache__/
+isd-history.csv
+Data/*
