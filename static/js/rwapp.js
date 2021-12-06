@@ -2,7 +2,7 @@
 
 
 const key = '';
-if(key=='01958b23db95b19900f21d8326eecf3e') document.getElementById('temp').innerHTML = ('Remember to add your api key!');
+if(key=='') document.getElementById('temp').innerHTML = ('Remember to add your api key!');
 lat == '36.333'
 lon == '-119.95'
 
