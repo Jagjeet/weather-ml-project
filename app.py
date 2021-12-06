@@ -1,15 +1,15 @@
 from flask import Flask, render_template, jsonify
 from flask_pymongo import PyMongo
 from datetime import datetime
+from config import mongodb_user, mongodb_pw
 
 # Create an instance of Flask
 app = Flask(__name__)
 
-# TODO
 # Use PyMongo to establish Mongo connection
 # mongo = PyMongo(app, uri="mongodb://localhost:27017/USWeather")
 mongo = PyMongo(app, uri="mongodb://localhost:27017/USWeatherAgg")
-
+# mongo = PyMongo(app, uri=f"mongodb+srv://{mongodb_user}:{mongodb_pw}@cluster0.gq7sf.mongodb.net/USWeatherAgg")
 
 # Route to render index.html template using data from Mongo
 @app.route("/")
@@ -84,7 +84,8 @@ def weather_period(start, end, station_id):
                                     {'_id': False})
 
     parsed = [x for x in db_data]
-    print('parsed: ', parsed)
+    parsed.sort(key=lambda x: x['YEARMODA'], reverse=True)
+    # print('parsed: ', parsed)
     return jsonify(parsed)
     
 @app.route('/<state>/<year>/data')
@@ -100,7 +101,7 @@ def db_data(state, year):
                                     {'_id': False})
     print('this route was pinged')
     parsed = [x for x in db_data]
-    print('parsed: ', parsed)
+    # print('parsed: ', parsed)
     return jsonify(parsed)
 
 if __name__ == '__main__':

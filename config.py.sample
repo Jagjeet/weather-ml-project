@@ -1,0 +1,4 @@
+# MongoDB Username
+mongodb_user = "dummy_user"
+# MongoDB Password
+mongodb_pw = "dummy_password"

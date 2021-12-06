@@ -6,3 +6,4 @@ __pycache__/
 isd-history.csv
 Data/*
 Resources/*
+config.py
