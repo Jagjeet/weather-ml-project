@@ -21,6 +21,12 @@ def home():
     # Return template and data
     return render_template("index.html")
 
+# Route to render index.html template using data from Mongo
+@app.route("/Map.html")
+def maps():
+    # Return template and data
+    return render_template("Map.html")
+
 # Get all unique station ids
 # Using techniques from:
 # https://www.geeksforgeeks.org/python-mongodb-distinct/
