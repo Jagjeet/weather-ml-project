@@ -1,15 +1,19 @@
 from flask import Flask, render_template, jsonify
 from flask_pymongo import PyMongo
 from datetime import datetime
-from config import mongodb_user, mongodb_pw
+from dotenv import load_dotenv
+import os
+
+load_dotenv()
 
 # Create an instance of Flask
 app = Flask(__name__)
 
 # Use PyMongo to establish Mongo connection
 # mongo = PyMongo(app, uri="mongodb://localhost:27017/USWeather")
-mongo = PyMongo(app, uri="mongodb://localhost:27017/USWeatherAgg")
+# mongo = PyMongo(app, uri="mongodb://localhost:27017/USWeatherAgg")
 # mongo = PyMongo(app, uri=f"mongodb+srv://{mongodb_user}:{mongodb_pw}@cluster0.gq7sf.mongodb.net/USWeatherAgg")
+mongo = PyMongo(app, uri=f"mongodb+srv://{os.environ.get('mongodb_user')}:{os.environ.get('mongodb_pw')}@cluster0.gq7sf.mongodb.net/USWeatherAgg")
 
 # Route to render index.html template using data from Mongo
 @app.route("/")
