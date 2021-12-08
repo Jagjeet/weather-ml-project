@@ -7,3 +7,4 @@ isd-history.csv
 Data/*
 Resources/*
 config.py
+.env
