@@ -3,8 +3,8 @@
 
 const key = '';
 if(key=='') document.getElementById('temp').innerHTML = ('Remember to add your api key!');
-lat == '36.333'
-lon == '-119.95'
+lat == ''
+lon == ''
 
 
 function weatherBallon( cityID ) {
@@ -28,16 +28,16 @@ function drawWeather( d ) {
   
   if( description.indexOf('rain') > 0 ) {
   	document.body.className = 'rainy';
-    image.src = 'reference-images\weather-showers-scattered.svg';
+    image.src = 'https://raw.githubusercontent.com/Jagjeet/weather-ml-project/deca2f407cfe176f24bf4aec62798990752c6e75/templates/reference-images/weather-showers-scattered.svg';
   } else if( description.indexOf('cloud') > 0 ) {
   	document.body.className = 'cloudy';
-    image.src = 'reference-images\weather-few-clouds.svg';
+    image.src = 'https://raw.githubusercontent.com/Jagjeet/weather-ml-project/deca2f407cfe176f24bf4aec62798990752c6e75/templates/reference-images/weather-few-clouds.svg';
   } else if( description.indexOf('snow') > 0 ) {
   	document.body.className = 'snow';
-    image.src = 'reference-images\weather-snow.svg';
+    image.src = 'https://raw.githubusercontent.com/Jagjeet/weather-ml-project/deca2f407cfe176f24bf4aec62798990752c6e75/templates/reference-images/weather-snow.svg';
   } else {
   	document.body.className = 'clear';
-    image.src = 'reference-images\weather-clear.svg';
+    image.src = 'https://raw.githubusercontent.com/Jagjeet/weather-ml-project/deca2f407cfe176f24bf4aec62798990752c6e75/templates/reference-images/weather-clear.svg';
   }
 }
 window.onload = function() {

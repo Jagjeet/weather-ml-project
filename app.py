@@ -4,6 +4,7 @@ from datetime import datetime
 from dotenv import load_dotenv
 import os
 
+
 load_dotenv()
 
 # Create an instance of Flask
@@ -12,7 +13,7 @@ app = Flask(__name__)
 # Use PyMongo to establish Mongo connection
 # mongo = PyMongo(app, uri="mongodb://localhost:27017/USWeather")
 # mongo = PyMongo(app, uri="mongodb://localhost:27017/USWeatherAgg")
-# mongo = PyMongo(app, uri=f"mongodb+srv://{mongodb_user}:{mongodb_pw}@cluster0.gq7sf.mongodb.net/USWeatherAgg")
+#mongo = PyMongo(app, uri=f"mongodb+srv://{mongodb_user}:{mongodb_pw}@cluster0.gq7sf.mongodb.net/USWeatherAgg")
 mongo = PyMongo(app, uri=f"mongodb+srv://{os.environ.get('mongodb_user')}:{os.environ.get('mongodb_pw')}@cluster0.gq7sf.mongodb.net/USWeatherAgg")
 
 # Route to render index.html template using data from Mongo
@@ -22,10 +23,28 @@ def home():
     return render_template("index.html")
 
 # Route to render index.html template using data from Mongo
+@app.route("/index.html")
+def backhome():
+    # Return template and data
+    return render_template("index.html")
+
+# Route to render index.html template using data from Mongo
 @app.route("/Map.html")
 def maps():
     # Return template and data
     return render_template("Map.html")
+
+# Route to render mlpage.html template
+@app.route("/mlpage.html")
+def mlpage():
+    # Return template and data
+    return render_template("mlpage.html")
+
+# Route to render readme.html template
+@app.route("/readme.html")
+def readme():
+    # Return template and data
+    return render_template("readme.html")
 
 # Get all unique station ids
 # Using techniques from:
