@@ -3,12 +3,16 @@ from flask_pymongo import PyMongo
 from datetime import datetime
 from dotenv import load_dotenv
 import os
-
+import pickle
 
 load_dotenv()
 
+# Load the model
+model = pickle.load(open('./AB.pkl','rb'))
+
 # Create an instance of Flask
 app = Flask(__name__)
+
 
 # Use PyMongo to establish Mongo connection
 # mongo = PyMongo(app, uri="mongodb://localhost:27017/USWeather")
@@ -45,6 +49,25 @@ def mlpage():
 def readme():
     # Return template and data
     return render_template("readme.html")
+
+
+@app.route('/predict',methods=['POST'])
+def predict():
+    # Get the data from the POST request.
+    if request.method == "POST":
+        #data = request.get_json(force=True)
+        print(request.form['temp'])
+        data = float(request.form['temp'])
+        print("Data", model.predict([[data]]))
+        # Make prediction using model loaded from disk as per the data.
+        prediction = model.predict([[data]])
+
+        # Take the first value of prediction
+        output = prediction[0]
+
+        return render_template("mlpage.html", output=output, exp=data)
+
+
 
 # Get all unique station ids
 # Using techniques from:

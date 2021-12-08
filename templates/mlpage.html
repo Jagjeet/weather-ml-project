@@ -105,14 +105,16 @@
             <header class="d-flex flex-wrap justify-content-center py-3 mb-4 border-bottom">
                 <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-dark text-decoration-none">
                     <svg class="bi me-2" width="40" height="32">
-                        <img src='https://raw.githubusercontent.com/Jagjeet/weather-ml-project/9b4007aeff1b628eee39651cc315bf9dedb527ed/RW-mlpage/reference-images/weather-clear.svg' class='img-fluid' width="40" height="32">
+                        <img src='https://raw.githubusercontent.com/Jagjeet/weather-ml-project/9b4007aeff1b628eee39651cc315bf9dedb527ed/RW-mlpage/reference-images/weather-clear.svg'
+                            class='img-fluid' width="40" height="32">
                         <use href="#bootstrap"></use>
                     </svg>
                     <span class="fs-4">Weather-ML</span>
                 </a>
 
                 <ul class="nav nav-pills">
-                    <li class="nav-item"><a href=".\index.html" class="nav-link active" aria-current="page">Home</a></li>
+                    <li class="nav-item"><a href=".\index.html" class="nav-link active" aria-current="page">Home</a>
+                    </li>
                     <li class="nav-item"><a href=".\Map.html" class="nav-link">Map</a></li>
                     <li class="nav-item"><a href=".\mlpage.html" class="nav-link">Machine Learning</a></li>
                     <li class="nav-item"><a href=".\readme.html" class="nav-link">ReadMe</a></li>
@@ -161,6 +163,11 @@
 
                             Machine Learning
                             <div id="station-metadata" class="panel-body">
+                                <form action="/predict" method="POST" class="form"></form>
+                                <div class="fieldset">
+                                    <input class="temp" name="temp" />
+                                </div>
+                                <input type="submit" class="button" value="predict">
 
                             </div>
 
@@ -178,18 +185,18 @@
 
                                 Current Weather
                                 <div id="station-metadata" class="panel-body">
-                                
-                                    
 
-                                  
-                                        <div class="bg"></div>
-                                        <div id="weather">
-                                            <div id="description"></div>
-                                            <h1 id="temp"></h1>
-                                            <div id="location"></div>
-                                        </div>
-                                 
-                                    
+
+
+
+                                    <div class="bg"></div>
+                                    <div id="weather">
+                                        <div id="description"></div>
+                                        <h1 id="temp"></h1>
+                                        <div id="location"></div>
+                                    </div>
+
+
 
                                 </div>
                             </div>
@@ -211,20 +218,20 @@
 
 
 
-        <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
         integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
         crossorigin=""></script>
-           <script src="https://code.jscharting.com/latest/jscharting.js"></script>
-        <script src="https://cdn.plot.ly/plotly-2.4.2.min.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.1.1/d3.min.js"></script>
-        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.6.0/Chart.min.js"></script>
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js"
-          integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ"
-          crossorigin="anonymous"></script>
-        <!--<script src="{{ url_for('static', filename='js/app.js') }}"></script>
+    <script src="https://code.jscharting.com/latest/jscharting.js"></script>
+    <script src="https://cdn.plot.ly/plotly-2.4.2.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.1.1/d3.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.6.0/Chart.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ"
+        crossorigin="anonymous"></script>
+    <!--<script src="{{ url_for('static', filename='js/app.js') }}"></script>
         <script src="{{ url_for('static', filename='js/jsapp.js') }}"></script> -->
-        <script src="{{ url_for('static', filename='js/rwapp.js') }}"></script>
-        
+    <script src="{{ url_for('static', filename='js/rwapp.js') }}"></script>
+
 
 </body>
 
