@@ -1,4 +1,17 @@
-# weather-ml-project
+# Weather ML- Project IV
+
+<p align="center"> 
+<img src="https://th.bing.com/th/id/R.a9439206c39f80ebc53970a0dced8687?rik=%2f%2frGKOh9TI2DPQ&pid=ImgRaw&r=0" width="500"/>
+</p>
+
+<br></br>
+<b>
+<p align="center">
+Overveiw:
+</p>
+</b>
+
+Our goal for this project was to build upon our last project, [weatherdata-project](https://github.com/Jagjeet/weatherdata-project), by using the same historical weather data from NOAA to create a machine learning model. This model, when given a date and location, should be able to predict the tempature. 
 
 ## Usage
 
