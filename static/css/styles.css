@@ -1,9 +1,7 @@
-.header-style {
-  background-color: rgb(86, 195, 223);
-}
 
   /* remove default margin and padding from body */
   body {
+    background-color: rgba(163, 176, 197, 0.788);
     padding: 0;
     margin: 0;
   }
@@ -13,6 +11,11 @@
   body,
   html {
     height: 100%;
+  }
+
+  #mainbox {
+    background-color: white;
+     height: auto;
   }
 
   #mapid { height: 600px;
