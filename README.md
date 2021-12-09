@@ -7,11 +7,16 @@
 <br></br>
 <b>
 <p align="center">
-Overveiw:
+Goals:
 </p>
 </b>
+The goal for this project was to build upon our last project, [weatherdata-project](https://github.com/Jagjeet/weatherdata-project), by using the same historical weather data from NOAA to create a machine learning model. This model, when given a date and location, should be capable of predicting the tempature. 
 
-Our goal for this project was to build upon our last project, [weatherdata-project](https://github.com/Jagjeet/weatherdata-project), by using the same historical weather data from NOAA to create a machine learning model. This model, when given a date and location, should be able to predict the tempature. 
+* ETL
+* Create Machine Learning Model 
+* Deploy a Dashboard using a flask app 
+* Add interactivity to the dashboard
+
 
 ## Usage
 
