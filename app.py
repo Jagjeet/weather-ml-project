@@ -1,9 +1,10 @@
-from flask import Flask, render_template, jsonify
+from flask import Flask, render_template, jsonify, request
 from flask_pymongo import PyMongo
 from datetime import datetime
 from dotenv import load_dotenv
 import os
 import pickle
+import time
 
 load_dotenv()
 
@@ -53,6 +54,10 @@ def readme():
 
 @app.route('/predict',methods=['POST'])
 def predict():
+
+    today = time.strftime("%Y-%m-%d")
+    print('Try again' + today)
+
     # Get the data from the POST request.
     if request.method == "POST":
         #data = request.get_json(force=True)
@@ -64,7 +69,7 @@ def predict():
 
         # Take the first value of prediction
         output = prediction[0]
-
+        print(output)
         return render_template("mlpage.html", output=output, exp=data)
 
 
