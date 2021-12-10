@@ -80,3 +80,8 @@ AdaBoost model worked more accurately with our train and test data and the predi
 <img src=https://user-images.githubusercontent.com/84758824/145517546-ee04baaf-c395-43d1-81cb-5daf648f92e3.PNG width="500"/>
 </p>
 
+* Machine Learning deployment
+<p align="center"> 
+<img src="https://user-images.githubusercontent.com/84758824/145520054-bf9b2d9e-518d-4238-a4e9-138b2b19f4f5.PNG" width="500"/>
+</p>
+
