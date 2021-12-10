@@ -55,22 +55,30 @@ def readme():
 @app.route('/predict',methods=['POST'])
 def predict():
 
-    today = time.strftime("%Y-%m-%d")
-    print('Try again' + today)
+    
+    
 
     # Get the data from the POST request.
     if request.method == "POST":
+        today_year = time.strftime("%Y")
+        today_month =time.strftime("%m")
+        today_day = time.strftime("%d")
         #data = request.get_json(force=True)
-        print(request.form['temp'])
-        data = float(request.form['temp'])
-        print("Data", model.predict([[data]]))
+        print(request.form['lat'])
+        print(request.form['lon'])
+        print(today_year, today_month, today_day)
+        lat = (request.form['lat'])
+        lon = (request.form['lon'])
+        data = (today_year,today_month,today_day,lat,lon)
+        print(data)
+        print("Data", model.predict([[today_year,today_month,today_day,lat,lon]]))
         # Make prediction using model loaded from disk as per the data.
-        prediction = model.predict([[data]])
+        prediction = model.predict([[today_year,today_month,today_day,lat,lon]])
+        output = round(prediction[0],2)
 
-        # Take the first value of prediction
-        output = prediction[0]
-        print(output)
-        return render_template("mlpage.html", output=output, exp=data)
+    return render_template("mlpage.html", output=output, exp=data)
+
+       
 
 
 
