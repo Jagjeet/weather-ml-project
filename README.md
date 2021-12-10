@@ -86,4 +86,4 @@ AdaBoost model worked more accurately with our train and test data and the predi
 </p>
 
 ### UC Davis Data Project
-* Some visualizations you can find by accessing this link [UC Davis Data Project] https://public.tableau.com/app/profile/jon.scheaffer/viz/UCDavisDataProject/MaxandMinfrom2000to2019#2)
+* Some visualizations you can find by accessing this link [UC Davis Data Project] https://public.tableau.com/app/profile/jon.scheaffer/viz/UCDavisDataProject/MaxandMinfrom2000to2019#2
