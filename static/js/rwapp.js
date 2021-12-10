@@ -59,7 +59,7 @@ function initWeather() {
         });
 
         let xData = responseData.map( x => {
-            let d = new Date(x.YEARMODA);
+            //let d = new Date(x.YEARMODA);
             // return d.toISOString().split('T')[0];
             return d.toISOString().substring(0,10);
         });
@@ -219,7 +219,7 @@ function updateLineChart() {
 
 function updateStationInfo(data) {
   let selectedStationId = selector.property("value");
-  let metadataSelector = d3.select(selectedStationId);
+  let metadataSelector = d3.select("#station-metadata");
 
   
   metadataSelector.selectAll("p").remove();
