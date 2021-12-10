@@ -162,6 +162,39 @@ function updateMap(){
 
   })
 }
+
+function updateStationInfo(data) {
+  let metadataSelector = d3.select("#station-metadata");
+
+  console.log(data);
+  metadataSelector.selectAll("p").remove();
+
+  metadataSelector
+  .append("p")
+  .text(`Station Name: ${data[0]['STATION NAME']}`);
+
+  // metadataSelector
+  // .append("p")
+  // .text(`Location: ${data[0]['CTRY']}`);
+
+  metadataSelector
+  .append("p")
+  .text(`State: ${data[0]['STATE']}`);
+
+
+  metadataSelector
+  .append("p")
+  .text(`Elevation (meters): ${data[0]['ELEV(M)']}`);
+
+  metadataSelector
+  .append("p")
+  .text(`Latitude: ${data[0]['LAT']}`);
+
+  metadataSelector
+  .append("p")
+  .text(`Latitude: ${data[0]['LON']}`);
+
+}
 function updatelocation(err, rows) {
   function unpack(rows, key) {
       return rows.map(function (row) {
@@ -187,38 +220,11 @@ function updatelocation(err, rows) {
 
   Plotly.newPlot("myDiv", data, layout);
 }
-function updateStationInfo(data) {
-    let metadataSelector = d3.select("#station-metadata");
-
-    console.log(data);
-    metadataSelector.selectAll("p").remove();
-
-    metadataSelector
-    .append("p")
-    .text(`Station Name: ${data[0]['STATION NAME']}`);
-
-    // metadataSelector
-    // .append("p")
-    // .text(`Location: ${data[0]['CTRY']}`);
-
-    metadataSelector
-    .append("p")
-    .text(`State: ${data[0]['STATE']}`);
 
 
-    metadataSelector
-    .append("p")
-    .text(`Elevation (meters): ${data[0]['ELEV(M)']}`);
 
-    metadataSelector
-    .append("p")
-    .text(`Latitude: ${data[0]['LAT']}`);
 
-    metadataSelector
-    .append("p")
-    .text(`Latitude: ${data[0]['LON']}`);
 
-}
 function weatherBallon( cityID ) {
     let startDate = '2001-01-01';
     let endDate = '2018-12-01';
