@@ -133,8 +133,8 @@ function initializeStationIdsSelector() {
     });
 }
 function updateMap(){
-  let startDate = document.getElementById('start-date-id').value;
-  let endDate = document.getElementById('end-date-id').value;
+  let startDate = '2001-01-01';
+  let endDate = '2018-12-01';
   let selector = d3.select("#select-station-id");
   let selectedStationId = selector.property("value");
 
