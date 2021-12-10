@@ -11,7 +11,7 @@ Goals:
 </p>
 </b>
 
-The goal for this project was to build upon our last project, [weatherdata-project](https://github.com/Jagjeet/weatherdata-project), by using the same historical weather data from NOAA to create a machine learning model. This model, when given a date and location, should be capable of predicting the tempature. 
+The goal for this project was to build upon our last project, [weatherdata-project](https://github.com/Jagjeet/weatherdata-project), by using the same historical weather data from NOAA to create a machine learning model. This model, when given a date and location, should be capable of predicting the temperature. 
 
 * ETL
 * Create Machine Learning Model 
