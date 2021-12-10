@@ -22,9 +22,17 @@ function initWeather() {
   //Initialize selector with station ids for the period
   initializeStationIdsSelector();
 
+  d3.json(`api/v1.0/weatherdata/period/${startDate}/${endDate}/${stationId}`)
+    .then(function (responseData) {
 
-    
+      console.log(responseData);
+
+
+
+    });
+
 }
+
 
 function updateStationInfo(data) {
   let metadataSelector = d3.select("#station-metadata");
