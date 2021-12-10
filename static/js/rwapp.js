@@ -36,7 +36,23 @@ function initWeather() {
       updateStationInfo(data);
   });
 }
+function initializeStationIdsSelector() {
+  
+  let startDate = '2000-01-01';
+  let endDate = '2018-12-31';
+  let selector = d3.select("#select-station-id");
 
+  d3.json(`api/v1.0/weatherdata/period/stations/${startDate}/${endDate}`).then(function (responseData) {
+      console.log(responseData);
+
+      responseData.forEach((station) => {
+          selector
+              .append("option")
+              .text(station)
+              .property("value", station);
+      });
+  });
+}
 
 function updateStationInfo(data) {
   let metadataSelector = d3.select("#station-metadata");
