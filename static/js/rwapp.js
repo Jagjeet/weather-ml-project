@@ -1,9 +1,18 @@
 //https://codepen.io/mattfroese/pen/WaeYQV
 
+
+
 const key = '';
 if (key == '') document.getElementById('temp').innerHTML = ('Remember to add your api key!');
 let lat = ''
 let lon = ''
+
+function updateControlsAndCharts() {
+  //Initialize selector with station ids for the period
+  // initializeStationIdsSelector();
+
+  
+}
 
 // initialize upon page load
 function initWeather() {
