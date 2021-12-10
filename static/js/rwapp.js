@@ -33,13 +33,13 @@ function initWeather() {
     updateStationInfo(responseData)
     // Setup event listeners for changing station, etc.
     selector.on("change", function(){
-      updateStationInfo(data);
+      updateStationInfo();
   });
 }
 function initializeStationIdsSelector() {
   
-  let startDate = '2000-01-01';
-  let endDate = '2018-12-31';
+  let startDate = document.getElementById('start-date-id').value;
+  let endDate = document.getElementById('end-date-id').value;
   let selector = d3.select("#select-station-id");
 
   d3.json(`api/v1.0/weatherdata/period/stations/${startDate}/${endDate}`).then(function (responseData) {
