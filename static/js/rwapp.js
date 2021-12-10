@@ -47,8 +47,8 @@ function initWeather() {
 }
 function initializeStationIdsSelector() {
   
-  let startDate = document.getElementById('start-date-id').value;
-  let endDate = document.getElementById('end-date-id').value;
+  let startDate = '2000-01-01';
+  let endDate = '2018-12-31';
   let selector = d3.select("#select-station-id");
 
   d3.json(`api/v1.0/weatherdata/period/stations/${startDate}/${endDate}`).then(function (responseData) {
