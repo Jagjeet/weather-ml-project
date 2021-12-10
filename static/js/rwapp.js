@@ -22,60 +22,41 @@ function initWeather() {
   //Initialize selector with station ids for the period
   initializeStationIdsSelector();
 
-  d3.json(`api/v1.0/weatherdata/period/${startDate}/${endDate}/${stationId}`)
-    .then(function (responseData) {
 
-      console.log(responseData);
-
-
-
-
-
-
-      
-
-      // Setup event listeners for changing station, etc.
-      selector.on("change", function () {
-        updateStationInfo();
-      });
-
-      function updateStationInfo(responseData) {
-        let metadataSelector = d3.select("#station-metadata");
     
-        metadataSelector.selectAll("p").remove();
-    
-        metadataSelector
-        .append("p")
-        .text(`Station Name: ${data[0]['STATION NAME']}`);
-    
-        // metadataSelector
-        // .append("p")
-        // .text(`Location: ${data[0]['CTRY']}`);
-    
-        metadataSelector
-        .append("p")
-        .text(`State: ${data[0]['STATE']}`);
-    
-    
-        metadataSelector
-        .append("p")
-        .text(`Elevation (meters): ${data[0]['ELEV(M)']}`);
-    
-        metadataSelector
-        .append("p")
-        .text(`Latitude: ${data[0]['LAT']}`);
-    
-        metadataSelector
-        .append("p")
-        .text(`Latitude: ${data[0]['LON']}`);
-    
-    }
-
-
-    });
 }
 
+function updateStationInfo(data) {
+  let metadataSelector = d3.select("#station-metadata");
 
+  metadataSelector.selectAll("p").remove();
+
+  metadataSelector
+    .append("p")
+    .text(`Station Name: ${data[0]['STATION NAME']}`);
+
+  // metadataSelector
+  // .append("p")
+  // .text(`Location: ${data[0]['CTRY']}`);
+
+  metadataSelector
+    .append("p")
+    .text(`State: ${data[0]['STATE']}`);
+
+
+  metadataSelector
+    .append("p")
+    .text(`Elevation (meters): ${data[0]['ELEV(M)']}`);
+
+  metadataSelector
+    .append("p")
+    .text(`Latitude: ${data[0]['LAT']}`);
+
+  metadataSelector
+    .append("p")
+    .text(`Latitude: ${data[0]['LON']}`);
+
+}
 
 
 
