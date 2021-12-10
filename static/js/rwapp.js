@@ -30,7 +30,11 @@ function initWeather() {
 
 
     });
-
+    updateStationInfo(responseData)
+    // Setup event listeners for changing station, etc.
+    selector.on("change", function(){
+      updateStationInfo(data);
+  });
 }
 
 
