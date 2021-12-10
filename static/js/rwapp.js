@@ -8,8 +8,8 @@ let lon = ''
 // initialize upon page load
 function initWeather() {
 
-    let startDate = '2001-01-01';
-    let endDate = '2018-12-01';
+    let startDate = '2000-01-01';
+    let endDate = '2018-12-31';
     let selector = d3.select("#select-station-id");
 
     // Use hardcode selector value
@@ -165,8 +165,8 @@ function updateMap(){
 
 
 function updateLineChart() {
-  let startDate = document.getElementById('start-date-id').value;
-  let endDate = document.getElementById('end-date-id').value;
+  let startDate = '2001-01-01';
+  let endDate = '2018-12-01';
   let selector = d3.select("#select-station-id");
   let selectedStationId = selector.property("value");
 
