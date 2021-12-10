@@ -127,21 +127,22 @@
             <!-- Controls-->
             <div class="d-flex justify-content-around">
 
-                <div class="card m-2" style="width: 15rem;">
-                    <div class="card-header">
+                <div class="card m-2" style="width: auto;">
+                    <header class="card-header">
                         <h3>Controls</h3>
-                    </div>
-                    <div class="card-body">
+                      </header>
+                      <div class="card-body">
 
 
 
 
                         <label for="sel-station-id" class="form-label">Station ID No.</label>
                         <select id="select-station-id" class="form-select" value="700635"></select>
+
                     </div>
-                </div>
+                
                 <section class="d-flex">
-                    <div id="mapid"></div>
+                    
 
 
                     <div class="card m-4">
@@ -152,6 +153,7 @@
                             <div id="station-metadata" class="panel-body"></div>
                         </div>
                     </div>
+                </div>
                 </section>
             </div>
 
@@ -250,7 +252,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ"
         crossorigin="anonymous"></script>
-    <script src="{{ url_for('static', filename='js/app.js') }}"></script>
+    <!--<script src="{{ url_for('static', filename='js/app.js') }}"></script>-->
     <!--<script src="{{ url_for('static', filename='js/jsapp.js') }}"></script> -->
     <script src="{{ url_for('static', filename='js/rwapp.js') }}"></script>
 
