@@ -13,7 +13,7 @@ function initWeather() {
     let selector = d3.select("#select-station-id");
 
     // Use hardcode selector value
-    //let stationId = "690150"
+    let stationId = "690150"
 
     console.log(startDate);
     console.log(endDate);
@@ -162,6 +162,60 @@ function updateMap(){
 
   })
 }
+
+
+function updateLineChart() {
+  let startDate = document.getElementById('start-date-id').value;
+  let endDate = document.getElementById('end-date-id').value;
+  let selector = d3.select("#select-station-id");
+  let selectedStationId = selector.property("value");
+
+  console.log('Updating line chart:');
+  console.log(startDate);
+  console.log(endDate);
+  console.log(selectedStationId);
+
+  d3.json(`api/v1.0/weatherdata/period/${startDate}/${endDate}/${selectedStationId}`)
+          .then(function (responseData) {
+
+      console.log(responseData)
+      console.log(selector);
+
+      updateStationInfo(responseData);
+
+      let xData = responseData.map( x => {
+          let d = new Date(x.YEARMODA);
+          // return d.toISOString().split('T')[0];
+          return d.toISOString().substring(0,10);
+      });
+
+      let tempTrace = {
+          x: [xData],
+          y: [responseData.map(x => x.TEMP)],
+      }
+
+      let minTrace = {
+          x: [xData],
+          y: [responseData.map(x => x.MIN)],
+      }
+
+      let maxTrace = {
+          x: [xData],
+          y: [responseData.map(x => x.MAX)],
+      }
+
+      // restyle existing plots
+      Plotly.restyle('weatherLine', tempTrace, 0);
+      Plotly.restyle('weatherLine', minTrace, 1);
+      Plotly.restyle('weatherLine', maxTrace, 2);
+
+      updateMap();
+
+  });
+}
+
+
+
 
 function updateStationInfo(data) {
   let metadataSelector = d3.select("#station-metadata");
