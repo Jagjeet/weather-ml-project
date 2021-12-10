@@ -166,7 +166,7 @@ function updateMap(){
 function updateStationInfo(data) {
   let metadataSelector = d3.select("#station-metadata");
 
-  console.log(data);
+  
   metadataSelector.selectAll("p").remove();
 
   metadataSelector
