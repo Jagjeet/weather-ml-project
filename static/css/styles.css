@@ -1,3 +1,6 @@
+.header-style {
+  background-color: rgb(253, 255, 255);
+}
 
   /* remove default margin and padding from body */
   body {
@@ -11,11 +14,6 @@
   body,
   html {
     height: 100%;
-  }
-
-  #mainbox {
-    background-color: white;
-     height: auto;
   }
 
   #mapid { height: 600px;
@@ -36,4 +34,4 @@
     float: left;
     margin-right: 8px;
     opacity: 0.7;
-  }
+  
