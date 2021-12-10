@@ -120,91 +120,92 @@
             
             </header>
         </div>
+        <div class="container" id = "mainbox">
+            <!-- Controls-->
+            <div class="d-flex justify-content-around">
 
-        <!-- Controls-->
-        <div class="d-flex justify-content-around">
-
-            <div class="card m-2" style="width: 15rem;">
-                <div class="card-header">
-                    <h3>Controls</h3>
-                </div>
-                <div class="card-body">
-                    <label for="start-date-id" class="form-label">
-                        Select today's date:
-                    </label>
-                    <input id="start-date-id" class="form-control" onchange="updateControlsAndCharts(this.value)"
-                        type="date" name="start-date" min="2021-12-01" max="2022-12-31" value="2021-12-01" required />
-
-                    <label for="sel-station-id" class="form-label">Station ID No.</label>
-                    <select id="select-station-id" class="form-select" value="700635"></select>
-                </div>
-            </div>
-            <section class="d-flex">
-                <div id="mapid"></div>
-                <div class="card m-4">
-                    <header class="card-header">
-                        <h3>Station Info</h3>
-                    </header>
+                <div class="card m-2" style="width: 15rem;">
+                    <div class="card-header">
+                        <h3>Controls</h3>
+                    </div>
                     <div class="card-body">
-                        <div id="station-metadata" class="panel-body"></div>
+                        <label for="start-date-id" class="form-label">
+                            Select today's date:
+                        </label>
+                        <input id="start-date-id" class="form-control" onchange="updateControlsAndCharts(this.value)"
+                            type="date" name="start-date" min="2021-12-01" max="2022-12-31" value="2021-12-01" required />
+
+                        <label for="sel-station-id" class="form-label">Station ID No.</label>
+                        <select id="select-station-id" class="form-select" value="700635"></select>
                     </div>
                 </div>
-            </section>
-        </div>
-
-        <!--https://stackoverflow.com/questions/22731809/how-to-place-two-containers-in-bootstrap-side-by-side/22731880-->
-
-        <div class="d-flex justify-content-around">
-            <div class="card m-2" style="width: 15rem;">
-                <div class="row">
-                    <div class="col-lg-6">
+                <section class="d-flex">
+                    <div id="mapid"></div>
+                    <div class="card m-4">
+                        <header class="card-header">
+                            <h3>Station Info</h3>
+                        </header>
                         <div class="card-body">
-
-                            Machine Learning
-                            <div id="station-metadata" class="panel-body">
-                                <form action="/predict" method="POST" class="form"></form>
-                                <div class="fieldset">
-                                    <input class="temp" name="temp" />
-                                </div>
-                                <input type="submit" class="button" value="predict">
-
-                            </div>
-
+                            <div id="station-metadata" class="panel-body"></div>
                         </div>
-
                     </div>
-                </div>
+                </section>
             </div>
-            <!--https://bithacker.dev/fetch-weather-openweathermap-api-javascript -->
+
+            <!--https://stackoverflow.com/questions/22731809/how-to-place-two-containers-in-bootstrap-side-by-side/22731880-->
+
             <div class="d-flex justify-content-around">
                 <div class="card m-2" style="width: 15rem;">
                     <div class="row">
                         <div class="col-lg-6">
                             <div class="card-body">
 
-                                Current Weather
+                                Machine Learning
                                 <div id="station-metadata" class="panel-body">
-
-
-
-
-                                    <div class="bg"></div>
-                                    <div id="weather">
-                                        <div id="description"></div>
-                                        <h1 id="temp"></h1>
-                                        <div id="location"></div>
+                                    <form action="/predict" method="POST" class="form"></form>
+                                    <div class="fieldset">
+                                        <input class="temp" name="temp" />
                                     </div>
-
-
+                                    <input type="submit" class="button" value="predict">
 
                                 </div>
+
                             </div>
 
                         </div>
                     </div>
                 </div>
+                <!--https://bithacker.dev/fetch-weather-openweathermap-api-javascript -->
+                <div class="d-flex justify-content-around">
+                    <div class="card m-2" style="width: 15rem;">
+                        <div class="row">
+                            <div class="col-lg-6">
+                                <div class="card-body">
+
+                                    Current Weather
+                                    <div id="station-metadata" class="panel-body">
+
+
+
+
+                                        <div class="bg"></div>
+                                        <div id="weather">
+                                            <div id="description"></div>
+                                            <h1 id="temp"></h1>
+                                            <div id="location"></div>
+                                        </div>
+
+
+
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
-        </div>
+            </div>
         </div>
     </main>
 
