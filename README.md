@@ -18,6 +18,29 @@ The goal for this project was to build upon our last project, [weatherdata-proje
 * Deploy a Dashboard using a flask app 
 * Add interactivity to the dashboard
 
+<br></br>
+<b>
+<p align="center">  
+Data Used:
+</p>
+</b>
+
+<p align="center">  
+<img src="https://storage.googleapis.com/kaggle-competitions/kaggle/3136/media/kaggle-transparent.svg" alt="NOAA Logo" width="200"/>
+</p>
+
+<p align="center">  
+<img src="https://www.omao.noaa.gov/sites/default/files/media/NOAA-Logo_large_no%20back.png" alt="NOAA Logo" width="200"/>
+</p>
+
+Our data came from a NOAA GSOD dataset that was pulled and put into Kaggle, which can be found here: <a href="https://www.kaggle.com/noaa/noaa-global-surface-summary-of-the-day" target="_top">Kaggle Data</a>. Per the link:
+"This dataset is identical to Kaggle's NOAA GSOD dataset using BigQuery. The data for both datasets updates on the same basis (daily) but may not be updated on the same time. Data from this dataset can be downloaded/accessed through this dataset page and Kaggle's API...
+
+<p align="center">  <b>Content</b></p>
+The online data files begin with 1929 and are at the time of this writing at the Version 8 software level. Over 9000 stations' data are typically available. The daily elements included in the dataset (as available from each station) are: Mean temperature (.1 Fahrenheit) Mean dew point (.1 Fahrenheit) Mean sea level pressure (.1 mb) Mean station pressure (.1 mb) Mean visibility (.1 miles) Mean wind speed (.1 knots) Maximum sustained wind speed (.1 knots) Maximum wind gust (.1 knots) Maximum temperature (.1 Fahrenheit) Minimum temperature (.1 Fahrenheit) Precipitation amount (.01 inches) Snow depth (.1 inches) Indicator for occurrence of: Fog, Rain or Drizzle, Snow or Ice Pellets, Hail, Thunder, Tornado/Funnel Cloud.
+<br></br>
+<p align="center"> <b> Acknowledgements</b></p>
+Dataset Source: NOAA. This dataset is publicly available for anyone to use under the following terms provided by the Dataset Source — http://www.data.gov/privacy-policy#data_policy — and is provided "AS IS" without any warranty, express or implied, from Google. Google disclaims all liability for any damages, direct or indirect, resulting from the use of the dataset."
 
 ## Usage
 
