@@ -218,7 +218,7 @@ function updateLineChart() {
 
 
 function updateStationInfo(data) {
-  let metadataSelector = d3.select("#station-metadata");
+  let metadataSelector = d3.select("#select-station-id");
 
   
   metadataSelector.selectAll("p").remove();
