@@ -32,65 +32,44 @@ function initWeather() {
 
 
 
-      updateStationInfo(responseData)
+      
 
       // Setup event listeners for changing station, etc.
       selector.on("change", function () {
-        updateLineChart();
+        updateStationInfo();
       });
 
-      let xData = responseData.map(x => {
-        //let d = new Date(x.YEARMODA);
-        // return d.toISOString().split('T')[0];
-        return d.toISOString().substring(0, 10);
-      });
-      let tempTrace = {
-        x: xData,
-        y: responseData.map(x => x.TEMP),
-        type: 'line',
-        line: {
-          color: 'rgb(0, 255, 0)',
-          width: 1
-        },
-        name: 'Temperature'
-      }
-
-      let minTrace = {
-        x: xData,
-        y: responseData.map(x => x.MIN),
-        type: 'line',
-        line: {
-          color: 'rgb(0, 0, 255)',
-          width: 1
-        },
-        name: 'Min Temperature'
-      }
-
-      let maxTrace = {
-        x: xData,
-        y: responseData.map(x => x.MAX),
-        type: 'line',
-        line: {
-          color: 'rgb(255, 0, 0)',
-          width: 1
-        },
-        name: 'Max Temperature'
-      }
-
-      var layout = {
-        title: 'Temperature (Degrees Fahrenheit) vs Date (GMT)',
-        xaxis: {
-          title: 'Date (GMT)',
-          tickmode: 'auto',
-          tickangle: -45
-        },
-        yaxis: {
-          title: 'Degrees Fahrenheit',
-          range: [-40, 120]
-        }
-      };
-
-      let tempData = [tempTrace, minTrace, maxTrace]
+      function updateStationInfo(responseData) {
+        let metadataSelector = d3.select("#station-metadata");
+    
+        metadataSelector.selectAll("p").remove();
+    
+        metadataSelector
+        .append("p")
+        .text(`Station Name: ${data[0]['STATION NAME']}`);
+    
+        // metadataSelector
+        // .append("p")
+        // .text(`Location: ${data[0]['CTRY']}`);
+    
+        metadataSelector
+        .append("p")
+        .text(`State: ${data[0]['STATE']}`);
+    
+    
+        metadataSelector
+        .append("p")
+        .text(`Elevation (meters): ${data[0]['ELEV(M)']}`);
+    
+        metadataSelector
+        .append("p")
+        .text(`Latitude: ${data[0]['LAT']}`);
+    
+        metadataSelector
+        .append("p")
+        .text(`Latitude: ${data[0]['LON']}`);
+    
+    }
 
 
     });
