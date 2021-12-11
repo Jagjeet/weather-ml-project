@@ -209,24 +209,10 @@ function updateLineChart() {
       Plotly.restyle('weatherLine', minTrace, 1);
       Plotly.restyle('weatherLine', maxTrace, 2);
 
-      d3.json(`api/v1.0/weatherdata/period/${startDate}/${endDate}/${selectedStationId}`)
-      .then(function (responseData) {
-      console.log("New latitude ", responseData[0].LAT)
-      console.log("New longitude data", responseData[0].LON)
+      
 
-      console.log(responseData);
-      fetch('https://api.openweathermap.org/data/2.5/weather?lat=' + [responseData[0].LAT] + '&lon=' + [responseData[0].LON] + '&appid=' + key)
-        .then(function (resp) { return resp.json() }) // Convert data to json
-        .then(function (data) {
-          console.log(data);
-          drawWeather(data);
-        })
-        .catch(function () {
-          // catch any errors
-        }); 
-  })
-
-      // updateMap();
+      updateMap();
+      updateballon();
     });
 }
 
@@ -321,6 +307,22 @@ function updateMap(){
           .openPopup();
 
   })
+  d3.json(`api/v1.0/weatherdata/period/${startDate}/${endDate}/${selectedStationId}`)
+  .then(function (responseData) {
+      console.log("New latitude ", responseData[0].LAT)
+      console.log("New longitude data", responseData[0].LON)
+
+      console.log(responseData);
+      fetch('https://api.openweathermap.org/data/2.5/weather?lat=' + [responseData[0].LAT] + '&lon=' + [responseData[0].LON] + '&appid=' + key)
+        .then(function (resp) { return resp.json() }) // Convert data to json
+        .then(function (data) {
+          console.log(data);
+          drawWeather(data);
+        })
+        .catch(function () {
+          // catch any errors
+        }); 
+  })
 }
 function weatherBallon(cityID) {
   let startDate = '2000-01-01';
@@ -352,7 +354,7 @@ function weatherBallon(cityID) {
 //   console.log(selectedStationId);
   
 
-//   d3.json(`api/v1.0/weatherdata/period/${startDate}/${endDate}/${selector}`)
+//   d3.json(`api/v1.0/weatherdata/period/${startDate}/${endDate}/${selectedStationId}`)
 //   .then(function (responseData) {
 //       console.log("New latitude ", responseData[0].LAT)
 //       console.log("New longitude data", responseData[0].LON)
