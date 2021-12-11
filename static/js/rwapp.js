@@ -55,7 +55,7 @@ function initWeather() {
       // Setup event listeners for changing station, etc.
       selector.on("change", function () {
         updateLineChart();
-        weatherBallon();
+        updateballon();
       });
 
       let xData = responseData.map(x => {
@@ -327,32 +327,33 @@ function weatherBallon(cityID) {
     });
 }
 
-// function updateballon(){
-//   let selector = d3.select("#select-station-id");
-//   // let selectedStationId = selector.property("value");
-//   let startDate = '2000-01-01';
-//   let endDate = '2018-12-01';
+function updateballon(){
+  let selector = d3.select("#select-station-id");
+  // let selectedStationId = selector.property("value");
+  let startDate = '2000-01-01';
+  let endDate = '2018-12-01';
 
-//   console.log('Updating api:');
-//   console.log(selectedStationId);
+  console.log('Updating api:');
+  console.log(selectedStationId);
   
 
-//   d3.json(`api/v1.0/weatherdata/period/${startDate}/${endDate}/${selector}`)
-//   .then(function (responseData) {
-//       console.log("New latitude ", responseData[0].LAT)
-//       console.log("New longitude data", responseData[0].LON)
+  d3.json(`api/v1.0/weatherdata/period/${startDate}/${endDate}/${selector}`)
+  .then(function (responseData) {
+      console.log("New latitude ", responseData[0].LAT)
+      console.log("New longitude data", responseData[0].LON)
 
-//       map = L.map('mapid').setView([responseData[0].LAT,responseData[0].LON], 13);
-
-//       L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-//           attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-//       }).addTo(map);
-
-//       [responseData[0].LAT,responseData[0].LON]
-          
-
-//   })
-// }
+      console.log(responseData);
+      fetch('https://api.openweathermap.org/data/2.5/weather?lat=' + [responseData[0].LAT] + '&lon=' + [responseData[0].LON] + '&appid=' + key)
+        .then(function (resp) { return resp.json() }) // Convert data to json
+        .then(function (data) {
+          console.log(data);
+          drawWeather(data);
+        })
+        .catch(function () {
+          // catch any errors
+        }); 
+  })
+}
 
 function drawWeather(d) {
   var celcius = Math.round(parseFloat(d.main.temp) - 273.15);
