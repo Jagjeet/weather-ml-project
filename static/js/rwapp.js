@@ -325,7 +325,7 @@ function updateMap(){
   //       }); 
   // })
 }
-function weatherBallon(cityID) {
+selector.on("change") = function weatherBallon(cityID) {
   let selector = d3.select("#select-station-id");
   let selectedStationId = selector.property("value");
   let startDate = '2000-01-01';
