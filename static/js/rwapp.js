@@ -39,7 +39,6 @@ function initWeather() {
 
       selector.on("change", function () {
         updateLineChart();
-        weatherBallon();
 
         console.log("Initial map lat and long")
         console.log(responseData[0].LAT)
@@ -211,9 +210,8 @@ function updateLineChart() {
       Plotly.restyle('weatherLine', minTrace, 1);
       Plotly.restyle('weatherLine', maxTrace, 2);
 
-      
-
       updateMap();
+
     });
 }
 
@@ -279,84 +277,10 @@ function updatelocation(err, rows) {
 
 
 
-function updateMap(){
-  let startDate = document.getElementById('start-date-id').value;
-  let endDate = document.getElementById('end-date-id').value;
-  let selector = d3.select("#select-station-id");
-  let selectedStationId = selector.property("value");
 
-  console.log('Updating line chart:');
-  console.log(startDate);
-  console.log(endDate);
-  console.log(selectedStationId);
-  map.off();
-  map.remove();
-
-  d3.json(`api/v1.0/weatherdata/period/${startDate}/${endDate}/${selectedStationId}`)
-  .then(function (responseData) {
-      console.log("New latitude ", responseData[0].LAT)
-      console.log("New longitude data", responseData[0].LON)
-
-      map = L.map('mapid').setView([responseData[0].LAT,responseData[0].LON], 13);
-
-      L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-          attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-      }).addTo(map);
-
-      L.marker([responseData[0].LAT,responseData[0].LON]).addTo(map)
-          .bindPopup(responseData[0].LBL)
-          .openPopup();
-
-  })
-  // d3.json(`api/v1.0/weatherdata/period/${startDate}/${endDate}/${selectedStationId}`)
-  // .then(function (responseData) {
-  //     console.log("New latitude ", responseData[0].LAT)
-  //     console.log("New longitude data", responseData[0].LON)
-
-  //     console.log(responseData);
-  //     fetch('https://api.openweathermap.org/data/2.5/weather?lat=' + [responseData[0].LAT] + '&lon=' + [responseData[0].LON] + '&appid=' + key)
-  //       .then(function (resp) { return resp.json() }) // Convert data to json
-  //       .then(function (data) {
-  //         console.log(data);
-  //         drawWeather(data);
-  //       })
-  //       .catch(function () {
-  //         // catch any errors
-  //       }); 
-  // })
-}
 function weatherBallon(cityID) {
-  let selector = d3.select("#select-station-id");
-  let selector = d3.select("#select-station-id");
-  let selectedStationId = selector.property("value");
   let startDate = '2000-01-01';
   let endDate = '2018-12-01';
-
-  d3.json(`api/v1.0/weatherdata/period/${startDate}/${endDate}/${selectedStationId}`)
-    .then(function (responseData) {
-
-      console.log(responseData);
-      fetch('https://api.openweathermap.org/data/2.5/weather?lat=' + [responseData[0].LAT] + '&lon=' + [responseData[0].LON] + '&appid=' + key)
-        .then(function (resp) { return resp.json() }) // Convert data to json
-        .then(function (data) {
-          console.log(data);
-          drawWeather(data);
-        })
-        .catch(function () {
-          // catch any errors
-        });
-    });
-}
-
-function updateballon(){
-  let selector = d3.select("#select-station-id");
-  let selectedStationId = selector.property("value");
-  let startDate = '2000-01-01';
-  let endDate = '2018-12-01';
-
-  console.log('Updating api:');
-  console.log(selectedStationId);
-  
 
   d3.json(`api/v1.0/weatherdata/period/${startDate}/${endDate}/${cityID}`)
     .then(function (responseData) {
