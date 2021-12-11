@@ -55,7 +55,6 @@ function initWeather() {
       // Setup event listeners for changing station, etc.
       selector.on("change", function () {
         updateLineChart();
-        updateballon();
       });
 
       let xData = responseData.map(x => {
@@ -211,7 +210,7 @@ function updateLineChart() {
       Plotly.restyle('weatherLine', maxTrace, 2);
 
       updateMap();
-
+      updateballon();
     });
 }
 
