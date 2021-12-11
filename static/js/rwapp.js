@@ -55,6 +55,7 @@ function initWeather() {
       // Setup event listeners for changing station, etc.
       selector.on("change", function () {
         updateLineChart();
+        weatherBallon();
       });
 
       let xData = responseData.map(x => {
@@ -276,8 +277,37 @@ function updatelocation(err, rows) {
 
 
 
+function updateMap(){
+  let startDate = document.getElementById('start-date-id').value;
+  let endDate = document.getElementById('end-date-id').value;
+  let selector = d3.select("#select-station-id");
+  let selectedStationId = selector.property("value");
 
-window.onload = function weatherBallon(cityID) {
+  console.log('Updating line chart:');
+  console.log(startDate);
+  console.log(endDate);
+  console.log(selectedStationId);
+  map.off();
+  map.remove();
+
+  d3.json(`api/v1.0/weatherdata/period/${startDate}/${endDate}/${selectedStationId}`)
+  .then(function (responseData) {
+      console.log("New latitude ", responseData[0].LAT)
+      console.log("New longitude data", responseData[0].LON)
+
+      map = L.map('mapid').setView([responseData[0].LAT,responseData[0].LON], 13);
+
+      L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+          attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+      }).addTo(map);
+
+      L.marker([responseData[0].LAT,responseData[0].LON]).addTo(map)
+          .bindPopup(responseData[0].LBL)
+          .openPopup();
+
+  })
+}
+function weatherBallon(cityID) {
   let startDate = '2000-01-01';
   let endDate = '2018-12-01';
 
@@ -297,9 +327,34 @@ window.onload = function weatherBallon(cityID) {
     });
 }
 
+// function updateballon(){
+//   let selector = d3.select("#select-station-id");
+//   // let selectedStationId = selector.property("value");
+//   let startDate = '2000-01-01';
+//   let endDate = '2018-12-01';
 
+//   console.log('Updating api:');
+//   console.log(selectedStationId);
+  
 
-window.onload = function drawWeather(d) {
+//   d3.json(`api/v1.0/weatherdata/period/${startDate}/${endDate}/${selector}`)
+//   .then(function (responseData) {
+//       console.log("New latitude ", responseData[0].LAT)
+//       console.log("New longitude data", responseData[0].LON)
+
+//       map = L.map('mapid').setView([responseData[0].LAT,responseData[0].LON], 13);
+
+//       L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+//           attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+//       }).addTo(map);
+
+//       [responseData[0].LAT,responseData[0].LON]
+          
+
+//   })
+// }
+
+function drawWeather(d) {
   var celcius = Math.round(parseFloat(d.main.temp) - 273.15);
   var fahrenheit = Math.round(((parseFloat(d.main.temp) - 273.15) * 1.8) + 32);
   var description = d.weather[0].description;
