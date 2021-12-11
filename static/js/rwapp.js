@@ -1,6 +1,6 @@
 //https://codepen.io/mattfroese/pen/WaeYQV
 
-const key = '';
+const key = 'a993b5c5eb2429dd024166626a0f667a';
 if (key == '') document.getElementById('temp').innerHTML = ('Remember to add your api key!');
 let lat = ''
 let lon = ''
