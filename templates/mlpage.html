@@ -116,7 +116,6 @@
                 <ul class="nav nav-pills">
                     <li class="nav-item"><a href=".\index.html" class="nav-link active" aria-current="page">Home</a>
                     </li>
-                    <li class="nav-item"><a href=".\Map.html" class="nav-link text-white">Map</a></li>
                     <li class="nav-item"><a href=".\mlpage.html" class="nav-link text-white">Machine Learning</a></li>
                     <li class="nav-item"><a href=".\readme.html" class="nav-link text-white">ReadMe</a></li>
                 </ul>
@@ -128,43 +127,61 @@
     </main>
 </body>
 <div class="container" id="mainbox">
-    <section class="d-flex justify-content-around">
-        <!-- Controls-->
-
-
-        <div class="card m-2" style="width: auto;">
-            <header class="card-header">
+    <section class="row">
+        <article class="col-lg-12">
+        <br>
+          <div class = "text-center">
+            <h2>Station Temperature Data</h2>
+          </div>
+          <br>
+          <section class="d-flex justify-content-around">
+            <!-- Controls-->
+            <div class="card m-2" style="width: auto;">
+              <header class="card-header">
                 <h3>Controls</h3>
-            </header>
-            <div class="card-body">
-
-
-
-
+              </header>
+              <div class="card-body">
+                <label for="start-date-id" class="form-label">
+                  Start Date:
+                </label>
+                <input id="start-date-id" class="form-control" onchange="updateControlsAndCharts(this.value)" type="date"
+                name="start-date" min="2000-01-01" max="2018-12-31" value="2000-01-01" required />
+                <label for="end-date-id" class="form-label">
+                  End Date:
+                </label>
+                <input
+                  id="end-date-id"
+                  class="form-control"
+                  onchange="updateControlsAndCharts(this.value)"
+                  type="date"
+                  name="end-date"
+                  min="2000-01-01"
+                  max="2018-12-31"
+                  value="2018-12-31"
+                  required/>
                 <label for="sel-station-id" class="form-label">Station ID No.</label>
                 <select id="select-station-id" class="form-select" value="700635"></select>
-
+              </div>
             </div>
-
-
-
-
-
+          </section>
+          <section class="d-flex">
+            <div id="mapid"></div>
             <div class="card m-4">
-                <header class="card-header">
-                    <h3>Station Info</h3>
-                </header>
-                <div class="card-body">
-                    <div id="station-metadata" class="panel-body"></div>
-                </div>
+              <header class="card-header">
+                <h3>Station Info</h3>
+              </header>
+              <div class="card-body">
+                <div id="station-metadata" class="panel-body"></div>
+              </div>
             </div>
-        </div>
-    </section>
-</div>
+          </section>
+        </article>
+      </section>
+
 
 <!--https://stackoverflow.com/questions/22731809/how-to-place-two-containers-in-bootstrap-side-by-side/22731880-->
 
-<div class="d-flex justify-content-around">
+    <div class="d-flex justify-content-around">
     <div class="card m-2" style="width: 20rem;">
         <div class="row">
             <div class="col-lg-6">
@@ -233,10 +250,10 @@
             </div>
         </div>
     </div>
-</div>
-</div>
-</div>
-</main>
+    </div>
+    </div>
+</div>  
+    </main>
 
 
 <script src="/docs/5.1/dist/js/bootstrap.bundle.min.js"
