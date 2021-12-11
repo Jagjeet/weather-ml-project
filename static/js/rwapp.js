@@ -55,7 +55,6 @@ function initWeather() {
       // Setup event listeners for changing station, etc.
       selector.on("change", function () {
         updateLineChart();
-        weatherBallon();
       });
 
       let xData = responseData.map(x => {
@@ -278,7 +277,7 @@ function updatelocation(err, rows) {
 
 
 
-function weatherBallon(cityID) {
+selector.on("change") = function weatherBallon(cityID) {
   let startDate = '2000-01-01';
   let endDate = '2018-12-01';
 
