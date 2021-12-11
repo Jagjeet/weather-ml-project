@@ -328,7 +328,7 @@ function weatherBallon(cityID) {
 
 function updateballon(){
   let selector = d3.select("#select-station-id");
-  // let selectedStationId = selector.property("value");
+  let selectedStationId = selector.property("value");
   let startDate = '2000-01-01';
   let endDate = '2018-12-01';
 
