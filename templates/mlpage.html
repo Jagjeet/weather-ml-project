@@ -108,117 +108,86 @@
         <div class="container" id="mainbox">
             <!-- Controls-->
             <div class="d-flex justify-content-around">
+
                 <div class="card m-2" style="width: 15rem;">
                     <div class="card-header">
-                        <h3>Controls</h3>
-                    </div>
-                    <div class="card-body">
-                        <label for="start-date-id" class="form-label">
-                            Select today's date:
-                        </label>
-                        <input id="start-date-id" class="form-control" onchange="updateControlsAndCharts(this.value)"
-                            type="date" name="start-date" min="2021-12-01" max="2022-12-31" value="2021-12-01"
-                            required />
-
-
-
-
-                        <label for="sel-station-id" class="form-label">Station ID No.</label>
-                        <select id="select-station-id" class="form-select" value="700635"></select>
-                    </div>
-                </div>
-                <section class="d-flex">
-                    <div id="mapid"></div>
-                    <div class="card m-4">
-                        <header class="card-header">
-                            <h3>Station Info</h3>
-                        </header>
-                        <div class="card-body">
-                            <div id="station-metadata" class="panel-body"></div>
+                        <div class="card m-2" style="width: auto;">
+                            <header class="card-header">
+                                <h3>Controls</h3>
                         </div>
+                        <div class="card-body">
+                            </header>
+                            <div class="card-body">
+
+
+
+
+                                <label for="sel-station-id" class="form-label">Station ID No.</label>
+                                <select id="select-station-id" class="form-select" value="700635"></select>
+
+                            </div>
+                        </div>
+
+                        <section class="d-flex">
+                            <div id="mapid"></div>
+
+
+
+                            <div class="card m-4">
+                                <header class="card-header">
+                                    <h3>Station Info</h3>
+                                </header>
+                                <div class="card-body">
+                                    <div id="station-metadata" class="panel-body"></div>
+                                </div>
+                            </div>
                     </div>
-                </section>
-            </div>
-            <!--https://stackoverflow.com/questions/22731809/how-to-place-two-containers-in-bootstrap-side-by-side/22731880-->
-            <div class="d-flex justify-content-around">
-                <div class="card m-2" style="width: 20rem;">
-                    <div class="row">
-                        <div class="col-lg-6">
-                            <form action="/predict" method="POST" class="form">
-                                <!--https://www.geeksforgeeks.org/how-to-place-two-input-box-next-to-each-other-using-bootstrap-4/-->
-                                <div class="input-group">
-                                    <div>
-                                        Machine Learning - Input the Latitude and Longitude below:
-                                        <form action="/predict" method="POST" class="form">
-                                            <!--https://www.geeksforgeeks.org/how-to-place-two-input-box-next-to-each-other-using-bootstrap-4/-->
-                                            <div class="input-group">
-                                                <div>
-                                                    Machine Learning - Input the Latitude and Longitude below:
-                                                </div>
-                                                <!-- declaration for first field -->
+                    </section>
+                </div>
 
-                                                <span class="input-group-text">Latitude</span>
-                                                <input class="lat" name="lat" />
-
-
-                                                <!-- reducing the gap between them to zero -->
-                                                <span class="input-group-btn" style="width:5px;"></span>
-
-                                                <!-- declaration for second field -->
-
-                                                <span class="input-group-text">Longitude</span>
-                                                <input class="lon" name="lon" />
-
-
-
-                                            </div>
-                                            <!-- declaration for first field -->
-
-                                            <span class="input-group-text">Latitude</span>
-                                            <input class="lat" name="lat" />
-
-
-                                            <!-- reducing the gap between them to zero -->
-                                            <span class="input-group-btn" style="width:5px;"></span>
-
-                                            <!-- declaration for second field -->
-
-                                            <span class="input-group-text">Longitude</span>
-                                            <input class="lon" name="lon" />
-
-
-
+                <!--https://stackoverflow.com/questions/22731809/how-to-place-two-containers-in-bootstrap-side-by-side/22731880-->
+                <div class="d-flex justify-content-around">
+                    <div class="card m-2" style="width: 20rem;">
+                        <div class="row">
+                            <div class="col-lg-6">
+                                <form action="/predict" method="POST" class="form">
+                                    <!--https://www.geeksforgeeks.org/how-to-place-two-input-box-next-to-each-other-using-bootstrap-4/-->
+                                    <div class="input-group">
+                                        <div>
+                                            Machine Learning - Input the Latitude and Longitude below:
+                                        </div>
+                                        <!-- declaration for first field -->
+                                        <span class="input-group-text">Latitude</span>
+                                        <input class="lat" name="lat" />
+                                        <!-- reducing the gap between them to zero -->
+                                        <span class="input-group-btn" style="width:5px;"></span>
+                                        <!-- declaration for second field -->
+                                        <span class="input-group-text">Longitude</span>
+                                        <input class="lon" name="lon" />
                                     </div>
-
                                     <figure>
                                         <br><input type="submit" class="button" value="predict"></br>
                                     </figure>
-
-
-
-                            </form>
-                            <h5>Predicted temperature in fahrenheit for today </h5>
-                            <h5>{{ output }}°F</h5>
-
-                            </form>
-                            <h5>Predicted temperature in fahrenheit for today </h5>
-                            <h5>{{ output }}°F</h5>
+                                </form>
+                                <h5>Predicted temperature in fahrenheit for today </h5>
+                                <h5>{{ output }}°F</h5>
+                            </div>
                         </div>
                     </div>
-                </div>
-                <!--https://bithacker.dev/fetch-weather-openweathermap-api-javascript -->
-                <div class="d-flex justify-content-around">
-                    <div class="card m-2" style="width: 15rem;">
-                        <div class="row">
-                            <div class="col-lg-6">
-                                <div class="card-body">
-                                    Current Weather
-                                    <div id="station-metadata" class="panel-body">
-                                        <div class="bg"></div>
-                                        <div id="weather">
-                                            <div id="description"></div>
-                                            <h1 id="temp"></h1>
-                                            <div id="location"></div>
+                    <!--https://bithacker.dev/fetch-weather-openweathermap-api-javascript -->
+                    <div class="d-flex justify-content-around">
+                        <div class="card m-2" style="width: 15rem;">
+                            <div class="row">
+                                <div class="col-lg-6">
+                                    <div class="card-body">
+                                        Current Weather
+                                        <div id="station-metadata" class="panel-body">
+                                            <div class="bg"></div>
+                                            <div id="weather">
+                                                <div id="description"></div>
+                                                <h1 id="temp"></h1>
+                                                <div id="location"></div>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
@@ -227,7 +196,6 @@
                     </div>
                 </div>
             </div>
-        </div>
         </div>
     </main>
     <script src="/docs/5.1/dist/js/bootstrap.bundle.min.js"
@@ -243,9 +211,11 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ"
         crossorigin="anonymous"></script>
-    <!--<script src="{{ url_for('static', filename='js/app.js') }}"></script>
-        <script src="{{ url_for('static', filename='js/jsapp.js') }}"></script> -->
+    <script src="{{ url_for('static', filename='js/app.js') }}"></script>
+    <!--<script src="{{ url_for('static', filename='js/app.js') }}"></script>-->
+    <!--<script src="{{ url_for('static', filename='js/jsapp.js') }}"></script> -->
     <script src="{{ url_for('static', filename='js/rwapp.js') }}"></script>
+
 </body>
 
 </html>
