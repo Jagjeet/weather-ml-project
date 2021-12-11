@@ -75,7 +75,7 @@ def predict():
         # Make prediction using model loaded from disk as per the data.
         prediction = model.predict([[today_year,today_month,today_day,lat,lon]])
         output = round(prediction[0],2)
-
+        
     return render_template("mlpage.html", output=output, exp=data)
 
        
