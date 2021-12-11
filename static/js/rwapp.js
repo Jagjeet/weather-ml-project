@@ -297,6 +297,8 @@ window.onload = function weatherBallon(cityID) {
     });
 }
 
+
+
 window.onload = function drawWeather(d) {
   var celcius = Math.round(parseFloat(d.main.temp) - 273.15);
   var fahrenheit = Math.round(((parseFloat(d.main.temp) - 273.15) * 1.8) + 32);
