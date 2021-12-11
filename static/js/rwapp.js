@@ -277,7 +277,7 @@ function updatelocation(err, rows) {
 
 
 
-selector.on("change") = function weatherBallon(cityID) {
+window.onload = function weatherBallon(cityID) {
   let startDate = '2000-01-01';
   let endDate = '2018-12-01';
 
@@ -297,7 +297,7 @@ selector.on("change") = function weatherBallon(cityID) {
     });
 }
 
-function drawWeather(d) {
+window.onload = function drawWeather(d) {
   var celcius = Math.round(parseFloat(d.main.temp) - 273.15);
   var fahrenheit = Math.round(((parseFloat(d.main.temp) - 273.15) * 1.8) + 32);
   var description = d.weather[0].description;
