@@ -325,13 +325,14 @@ function updateMap(){
   //       }); 
   // })
 }
-selector.on("change") = function weatherBallon(cityID) {
+function weatherBallon(cityID) {
+  let selector = d3.select("#select-station-id");
   let selector = d3.select("#select-station-id");
   let selectedStationId = selector.property("value");
   let startDate = '2000-01-01';
   let endDate = '2018-12-01';
 
-  d3.json(`api/v1.0/weatherdata/period/${startDate}/${endDate}/${cityID}`)
+  d3.json(`api/v1.0/weatherdata/period/${startDate}/${endDate}/${selectedStationId}`)
     .then(function (responseData) {
 
       console.log(responseData);
