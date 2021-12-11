@@ -39,7 +39,7 @@ function initWeather() {
 
       selector.on("change", function () {
         updateLineChart();
-        updateballon();
+        weatherBallon();
 
         console.log("Initial map lat and long")
         console.log(responseData[0].LAT)
@@ -56,7 +56,7 @@ function initWeather() {
       // Setup event listeners for changing station, etc.
       selector.on("change", function () {
         updateLineChart();
-        updateballon();
+        weatherBallon();
       });
 
       let xData = responseData.map(x => {
