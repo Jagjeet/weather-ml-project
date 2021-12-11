@@ -9,9 +9,9 @@ let lon = ''
 function initWeather() {
 
   let startDate = '2000-01-01';
-  let endDate = '2018-12-01';
+  let endDate = '2018-12-31';
   let selector = d3.select("#select-station-id");
-
+  
   // Use hardcode selector value
   let stationId = "690150"
 
@@ -117,7 +117,7 @@ function initWeather() {
 
 function initializeStationIdsSelector() {
   let startDate = '2000-01-01';
-  let endDate = '2018-12-01';
+  let endDate = '2018-12-31';
   let selector = d3.select("#select-station-id");
 
   d3.json(`api/v1.0/weatherdata/period/stations/${startDate}/${endDate}`).then(function (responseData) {
