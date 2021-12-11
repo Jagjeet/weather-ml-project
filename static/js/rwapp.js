@@ -39,6 +39,7 @@ function initWeather() {
 
       selector.on("change", function () {
         updateLineChart();
+        updateballon();
 
         console.log("Initial map lat and long")
         console.log(responseData[0].LAT)
@@ -55,6 +56,7 @@ function initWeather() {
       // Setup event listeners for changing station, etc.
       selector.on("change", function () {
         updateLineChart();
+        updateballon();
       });
 
       let xData = responseData.map(x => {
@@ -362,10 +364,8 @@ function updateballon(){
   console.log(selectedStationId);
   
 
-  d3.json(`api/v1.0/weatherdata/period/${startDate}/${endDate}/${selectedStationId}`)
-  .then(function (responseData) {
-      console.log("New latitude ", responseData[0].LAT)
-      console.log("New longitude data", responseData[0].LON)
+  d3.json(`api/v1.0/weatherdata/period/${startDate}/${endDate}/${cityID}`)
+    .then(function (responseData) {
 
       console.log(responseData);
       fetch('https://api.openweathermap.org/data/2.5/weather?lat=' + [responseData[0].LAT] + '&lon=' + [responseData[0].LON] + '&appid=' + key)
@@ -376,8 +376,8 @@ function updateballon(){
         })
         .catch(function () {
           // catch any errors
-        }); 
-  })
+        });
+    });
 }
 
 function drawWeather(d) {
